@@ -8,15 +8,38 @@ import SearchResults from './components/searchresults/SearchResults';
 
 function App() {
     const [results, setResults] = useState([]);
+    const [hasSearched, setHasSearched] = useState(false);
 
     const handleSearch = async (term) => {
     const tracks = await searchSongs(term);
     setResults(tracks);
+    setHasSearched(true);
+    };
+
+    const handleAdd = (track) => {
+        // Logic to add the track to a playlist or perform any other action
+        console.log(`Adding track: ${track.name}`);
+    };
+    const handleRemove = (track) => {
+        // Logic to remove the track from a playlist or perform any other action
+        console.log(`Removing track: ${track.name}`);
+    };
+    const handleSave = () => {
+        // Logic to save the playlist or perform any other action
+        console.log('Saving playlist...');
     };
     return (
         <>
           <Header handleSearch={handleSearch} />
-          <SearchResults results={results} />
+          <div className="column-section">
+            <div className="col50">
+              {hasSearched && <SearchResults results={results} onAdd={handleAdd} onRemove={handleRemove} onSave={handleSave} />}
+            </div>
+            <div className="col50">
+              {hasSearched && <SearchResults results={results} onAdd={handleAdd} onRemove={handleRemove} onSave={handleSave} />}
+            </div>
+          </div>
+          
         </>
   )
 }

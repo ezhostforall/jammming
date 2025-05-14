@@ -99,3 +99,49 @@ button:disabled {
   cursor: not-allowed;
   box-shadow: none;
 }
+
+.warning {
+  background: var(--color-error);
+  color: #fff;
+}
+.warning:hover:not(:disabled) {
+  background: var(--color-error-hover);
+  box-shadow: var(--shadow-sm);
+}
+.warning:active:not(:disabled) {
+  background: var(--color-error-active);
+  box-shadow: var(--shadow-md);
+}
+.warning:focus {
+  outline: var(--border-width) solid var(--color-error-focus);
+  outline-offset: var(--space-xs);
+}
+.warning:disabled {
+  background: var(--color-disabled);
+  color: var(--color-text-light);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.success {
+  background: var(--color-success);
+  color: #fff;
+}
+.success:hover:not(:disabled) {
+  background: var(--color-success-hover);
+  box-shadow: var(--shadow-sm);
+}
+.success:active:not(:disabled) {
+  background: var(--color-success-active);
+  box-shadow: var(--shadow-md);
+}
+.success:focus {
+  outline: var(--border-width) solid var(--color-success-focus);
+  outline-offset: var(--space-xs);
+}
+.success:disabled {
+  background: var(--color-disabled);
+  color: var(--color-text-light);
+  cursor: not-allowed;
+  box-shadow: none;
+}

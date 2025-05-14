@@ -1,0 +1,7 @@
+
+.column-section {
+    /* Add your styles for the parent of .col50 here */
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: var(--space-md);
+}
