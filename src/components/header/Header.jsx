@@ -5,11 +5,13 @@ import Logo from "../logo/Logo";
 import "./Header.css"; // Assuming you have a CSS file for styling
 
 
-const Header = () => {
+const Header = ( { handleSearch }) => {
+    
+
     return (
         <header>
             <Logo alt="Jammming" className="header-logo" type="text" />
-            <SearchBar />
+            <SearchBar onSearch={handleSearch} />
         </header>
     )
 };
