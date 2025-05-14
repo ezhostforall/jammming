@@ -32,11 +32,11 @@ function App() {
         <>
           <Header handleSearch={handleSearch} />
           <div className="column-section">
-            <div className="col50">
-              {hasSearched && <SearchResults results={results} onAdd={handleAdd} onRemove={handleRemove} onSave={handleSave} />}
+            <div>
+              {hasSearched && <SearchResults results={results} onAdd={handleAdd} onRemove={handleRemove} />}
             </div>
-            <div className="col50">
-              {hasSearched && <SearchResults results={results} onAdd={handleAdd} onRemove={handleRemove} onSave={handleSave} />}
+            <div>
+              {hasSearched && <SearchResults results={results} onRemove={handleRemove} onSave={handleSave} />}
             </div>
           </div>
           
