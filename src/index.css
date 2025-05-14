@@ -42,6 +42,7 @@
   --border-style: solid;
 
   /* Spacing (responsive units) */
+  --space-letters: 0.05em;
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
   --space-md: 1rem;
@@ -59,6 +60,9 @@
   --font-size-base: 1rem;
   --font-size-sm: 0.875rem;
   --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-xxl: 2rem;
+  --font-size-xxxl: 3rem;
   --font-weight-normal: 400;
   --font-weight-bold: 600;
 }
