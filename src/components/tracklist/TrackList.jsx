@@ -4,11 +4,21 @@ import Track from "../track/Track"; // Import your Track component
 
 
 
-const TrackList = ( {tracks=[]} ) => {
+const TrackList = ( {tracks=[], addTrackToPlaylist, removeTrackFromPlaylist} ) => {
+    
     return (
         <div className="track-list">
             {tracks.map(track => (
-                <Track key={track.id} title={track.name} artist={track.artist} album={track.album} />
+                <div key={track.id}> 
+                    <Track 
+                    id={track.id} 
+                    title={track.name} 
+                    artist={track.artist} 
+                    album={track.album} 
+                    addTrackToPlaylist={addTrackToPlaylist} 
+                    removeTrackFromPlaylist={removeTrackFromPlaylist} 
+                    />
+                </div>
             ))}
         </div>
     )

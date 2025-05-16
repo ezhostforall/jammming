@@ -13,6 +13,21 @@ import { searchSongs } from './utils/utils'
 function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [playlistTracks, setPlaylistTracks] = useState([]);
+  const [playlistName, setPlaylistName] = useState('My Playlist');
+
+  const addTrackToPlaylist = (track) => {
+    if (!playlistTracks.some((t) => t.id === track.id)) {
+      setPlaylistTracks([...playlistTracks, track]);
+    }
+  }
+  const removeTrackFromPlaylist = (trackId) => {
+    setPlaylistTracks(playlistTracks.filter((track) => track.id !== trackId));
+  }
+  const savePlaylistToSpotify = () => {
+    // Logic to save the playlist to Spotify
+    console.log("Saving playlist to Spotify...");
+  }
+
     return (
         <>
           <>
@@ -20,8 +35,8 @@ function App() {
           </>
           <SearchBar searchSongs={searchSongs} setSearchResults={setSearchResults} />
           <div className="grid-container">
-              <SearchResults searchResults={searchResults} />
-              <Playlist playlistTracks={playlistTracks} />
+              <SearchResults searchResults={searchResults} addTrackToPlaylist={addTrackToPlaylist} />
+              <Playlist playlistTracks={playlistTracks} playlistName={playlistName} removeTrackFromPlaylist={removeTrackFromPlaylist} savePlaylistToSpotify={savePlaylistToSpotify} />
           </div>
         </>
   )
