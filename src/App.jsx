@@ -7,7 +7,7 @@ import Playlist from './components/playlist/Playlist';
 import SearchResults from './components/searchresults/SearchResults';
 import Button from './components/button/Button';
 
-import { searchSongs, tracks } from './utils/utils'
+import { searchSongs } from './utils/utils'
 
 
 function App() {
@@ -18,13 +18,10 @@ function App() {
           <>
             <Header />
           </>
-          <SearchBar searchSongs={searchSongs} tracks={tracks} setSearchResults={setSearchResults} />
+          <SearchBar searchSongs={searchSongs} setSearchResults={setSearchResults} />
           <div className="grid-container">
               <SearchResults searchResults={searchResults} />
               <Playlist playlistTracks={playlistTracks} />
-          </div>
-          <div className="container">
-            <Button type="button" className='save-to-spotify-button'>Save to Spotify</Button>
           </div>
         </>
   )

@@ -2,11 +2,11 @@ import React, {useState} from "react";
 import Button from "../button/Button"; // Import your Button component
 import "./SearchBar.css";
 
-const SearchBar = ( {searchSongs, tracks, setSearchResults}) => {
+const SearchBar = ( {searchSongs, setSearchResults}) => {
   const [searchTerm, setSearchTerm] = useState("");
   
   const handleSearch = async () => {
-    const results = await searchSongs(searchTerm, tracks);
+    const results = await searchSongs(searchTerm);
     setSearchResults(results);
     console.log(results);
   }

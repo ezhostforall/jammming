@@ -2,7 +2,11 @@
 // This file contains utility functions for searching songs, managing playlists, and handling track selection.
 
 // Dummy track data
-export const tracks = [
+// This is a mock data set of tracks that can be used for testing and development purposes.
+
+export async function searchSongs(term) {
+
+  const tracks = [
     {
       id: 1,
       name: "Song 1",
@@ -64,8 +68,6 @@ export const tracks = [
       album: "Album 10",
     },
   ];
-
-export async function searchSongs(term, tracks) {
   // perform the search
   const searchResults = tracks.filter((track) => {
     return (
