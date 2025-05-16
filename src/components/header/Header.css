@@ -3,6 +3,7 @@ header {
     border-bottom: 1px solid #ccc;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 1rem 2rem;
+    font-family: var(--logo-font-family);;
 }

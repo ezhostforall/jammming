@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import Button from "../button/Button"; // Import your Button component
 import "./SearchBar.css";
 
-const SearchBar = ({ onSearch }) => {
+const SearchBar = ( {searchSongs, tracks, setSearchResults}) => {
   const [searchTerm, setSearchTerm] = useState("");
+  
+  const handleSearch = async () => {
+    const results = await searchSongs(searchTerm, tracks);
+    setSearchResults(results);
+    console.log(results);
+  }
 
   const handleInputChange = (event) => {
     setSearchTerm(event.target.value);
@@ -11,28 +17,25 @@ const SearchBar = ({ onSearch }) => {
 
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
-      onSearch(searchTerm);
-      setSearchTerm("");
+      handleSearch();
     }
   };
 
   return (
     <div className="search-bar">
       <input
+        className="search-bar-input"
         type="text"
+        placeholder="Search for a song..."
         value={searchTerm}
         onChange={handleInputChange}
         onKeyUp={handleKeyPress}
-        placeholder="Search..."
       />
-      <Button onClick={() => { onSearch(searchTerm); setSearchTerm(""); }} className="primary">
+      <Button type="button" className="search-bar-button" onClick={handleSearch}>
         Search
-      </Button>
-      <Button onClick={() => { setSearchTerm(""); }} className="outline">
-        Clear
       </Button>
     </div>
   );
-};
+}
 
 export default SearchBar;

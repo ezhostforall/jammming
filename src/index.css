@@ -56,7 +56,8 @@
   --shadow-lg: 0 0.5rem 1.5rem 0 rgba(30, 64, 175, 0.16);
 
   /* Typography (responsive units) */
-  --font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  --logo-font-family: 'Orbitron', sans-serif;
+  --font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
   --font-size-base: 1rem;
   --font-size-sm: 0.875rem;
   --font-size-lg: 1.25rem;
@@ -153,3 +154,4 @@ input:disabled, textarea:disabled, select:disabled {
   background: var(--color-border);
   border-radius: var(--border-radius-lg);
 }
+

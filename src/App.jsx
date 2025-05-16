@@ -1,45 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css'
-import { useState } from 'react';
-import { searchSongs } from './utils/search-utils';
 
-import Header from './components/header/Header'
+import Header from './components/header/Header';
+import SearchBar from './components/searchbar/SearchBar';
+import Playlist from './components/playlist/Playlist';
 import SearchResults from './components/searchresults/SearchResults';
+import Button from './components/button/Button';
+
+import { searchSongs, tracks } from './utils/utils'
+
 
 function App() {
-    const [results, setResults] = useState([]);
-    const [hasSearched, setHasSearched] = useState(false);
-
-    const handleSearch = async (term) => {
-    const tracks = await searchSongs(term);
-    setResults(tracks);
-    setHasSearched(true);
-    };
-
-    const handleAdd = (track) => {
-        // Logic to add the track to a playlist or perform any other action
-        console.log(`Adding track: ${track.name}`);
-    };
-    const handleRemove = (track) => {
-        // Logic to remove the track from a playlist or perform any other action
-        console.log(`Removing track: ${track.name}`);
-    };
-    const handleSave = () => {
-        // Logic to save the playlist or perform any other action
-        console.log('Saving playlist...');
-    };
+  const [searchResults, setSearchResults] = useState([]);
+  const [playlistTracks, setPlaylistTracks] = useState([]);
     return (
         <>
-          <Header handleSearch={handleSearch} />
-          <div className="column-section">
-            <div>
-              {hasSearched && <SearchResults results={results} onAdd={handleAdd} onRemove={handleRemove} />}
-            </div>
-            <div>
-              {hasSearched && <SearchResults results={results} onRemove={handleRemove} onSave={handleSave} />}
-            </div>
+          <>
+            <Header />
+          </>
+          <SearchBar searchSongs={searchSongs} tracks={tracks} setSearchResults={setSearchResults} />
+          <div className="grid-container">
+              <SearchResults searchResults={searchResults} />
+              <Playlist playlistTracks={playlistTracks} />
           </div>
-          
+          <div className="container">
+            <Button type="button" className='save-to-spotify-button'>Save to Spotify</Button>
+          </div>
         </>
   )
 }

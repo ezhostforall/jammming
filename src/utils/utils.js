@@ -1,6 +1,8 @@
-export async function searchSongs(term) {
+// Named utility functions for track, search, and playlist management
+// This file contains utility functions for searching songs, managing playlists, and handling track selection.
 
-  const tracks = [
+// Dummy track data
+export const tracks = [
     {
       id: 1,
       name: "Song 1",
@@ -61,9 +63,11 @@ export async function searchSongs(term) {
       artist: "Artist 10",
       album: "Album 10",
     },
-  ]
+  ];
+
+export async function searchSongs(term, tracks) {
   // perform the search
-  const filteredTracks = tracks.filter((track) => {
+  const searchResults = tracks.filter((track) => {
     return (
       track.name.toLowerCase().includes(term.toLowerCase()) ||
       track.artist.toLowerCase().includes(term.toLowerCase()) ||
@@ -73,5 +77,6 @@ export async function searchSongs(term) {
   // simulate a delay
   await new Promise((resolve) => setTimeout(resolve, 1000));
   // return the filtered tracks
-  return filteredTracks;
+  console.log(searchResults);
+  return searchResults;
 }
