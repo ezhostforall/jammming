@@ -12,12 +12,13 @@ import { searchSongs } from './utils/utils'
 
 function App() {
   const [searchResults, setSearchResults] = useState([]);
-  const [playlistTracks, setPlaylistTracks] = useState([]);
-  const [playlistName, setPlaylistName] = useState('My Playlist');
+  const [playlistTracks, setPlaylistTracks] = useState(localStorage.getItem('playlist') ? JSON.parse(localStorage.getItem('playlist')) : []);
+  const [playlistName, setPlaylistName] = useState(localStorage.getItem('playlistName') ? localStorage.getItem('playlistName') : 'My Playlist');
 
   const addTrackToPlaylist = (track) => {
     if (!playlistTracks.some((t) => t.id === track.id)) {
       setPlaylistTracks([...playlistTracks, track]);
+      
     }
   }
   const removeTrackFromPlaylist = (trackId) => {
@@ -27,6 +28,7 @@ function App() {
     // Logic to save the playlist to Spotify
     console.log("Saving playlist to Spotify...");
     localStorage.setItem('playlist', JSON.stringify(playlistTracks));
+    localStorage.setItem('playlistName', playlistName);
   }
 
     return (
