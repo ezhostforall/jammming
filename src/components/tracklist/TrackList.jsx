@@ -8,13 +8,11 @@ const TrackList = ( {tracks=[], addTrackToPlaylist, removeTrackFromPlaylist} ) =
     
     return (
         <div className="track-list">
+            
             {tracks.map(track => (
                 <div key={track.id}> 
                     <Track 
-                    id={track.id} 
-                    title={track.name} 
-                    artist={track.artist} 
-                    album={track.album} 
+                    track={track} 
                     addTrackToPlaylist={addTrackToPlaylist} 
                     removeTrackFromPlaylist={removeTrackFromPlaylist} 
                     />

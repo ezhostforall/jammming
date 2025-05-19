@@ -3,11 +3,11 @@ import "./Playlist.css";
 import TrackList from "../tracklist/TrackList";
 import Button from "../button/Button"; // Import your Button component
 
-const Playlist = ({ playlistTracks, removeTrackFromPlaylist, savePlaylistToSpotify }) => {
+const Playlist = ({ playlistTracks, playlistName, setPlaylistName, removeTrackFromPlaylist, savePlaylistToSpotify }) => {
 
     const handlePlaylistNameChange = (event) => {
         // Handle the change in playlist name here
-        console.log(event.target.value);
+        setPlaylistName(event.target.value);
     }
     const handleKeyPress = (event) => {
         if (event.key === "Enter") {
@@ -27,7 +27,8 @@ const Playlist = ({ playlistTracks, removeTrackFromPlaylist, savePlaylistToSpoti
                 className="playlist-name-input"
                 placeholder="Playlist Name"
                 onChange={handleInputChange}
-                onKeyPress={handleKeyPress}
+                onKeyUp={handleKeyPress}
+                value={playlistName}
                 />
             </div>
             <TrackList tracks={playlistTracks} removeTrackFromPlaylist={removeTrackFromPlaylist} />

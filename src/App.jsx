@@ -26,6 +26,7 @@ function App() {
   const savePlaylistToSpotify = () => {
     // Logic to save the playlist to Spotify
     console.log("Saving playlist to Spotify...");
+    localStorage.setItem('playlist', JSON.stringify(playlistTracks));
   }
 
     return (
@@ -36,7 +37,7 @@ function App() {
           <SearchBar searchSongs={searchSongs} setSearchResults={setSearchResults} />
           <div className="grid-container">
               <SearchResults searchResults={searchResults} addTrackToPlaylist={addTrackToPlaylist} />
-              <Playlist playlistTracks={playlistTracks} playlistName={playlistName} removeTrackFromPlaylist={removeTrackFromPlaylist} savePlaylistToSpotify={savePlaylistToSpotify} />
+              <Playlist playlistTracks={playlistTracks} playlistName={playlistName} setPlaylistName={setPlaylistName} removeTrackFromPlaylist={removeTrackFromPlaylist} savePlaylistToSpotify={savePlaylistToSpotify} />
           </div>
         </>
   )
