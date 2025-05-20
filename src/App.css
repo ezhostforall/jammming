@@ -21,7 +21,8 @@
 
 .track-info {
     display: grid;
-    grid-template-columns: 2fr 2fr 2fr 1fr;
+    grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
+    gap: var(--space-xs);
     align-items: center;
     border: var(--border-default);
     border-radius: var(--border-radius-lg);
@@ -35,6 +36,12 @@
     grid-column: 1 / -1; 
     margin-top: var(--space-sm); 
     width: 100%;
+}
+
+.track-info img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
 }
 
 .track-info:hover {

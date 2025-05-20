@@ -6,6 +6,7 @@ const Track = ({ track, addTrackToPlaylist, removeTrackFromPlaylist }) => {
     console.log(track);
     return (
         <div className="track-info" key={track.id}>
+            <img src={track.image} alt={track.name} />
             <h3>{track.name}</h3>
             <p>{track.artist}</p>
             <p>{track.album}</p>
