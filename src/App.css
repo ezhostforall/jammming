@@ -21,7 +21,7 @@
 
 .track-info {
     display: grid;
-    grid-template-columns: 3fr 2fr 2fr 1fr;
+    grid-template-columns: 2fr 2fr 2fr 1fr;
     align-items: center;
     border: var(--border-default);
     border-radius: var(--border-radius-lg);
@@ -31,8 +31,14 @@
     transition: var(--transition-medium);
 }
 
+.track-info audio {
+    grid-column: 1 / -1; 
+    margin-top: var(--space-sm); 
+    width: 100%;
+}
+
 .track-info:hover {
-    background: var(--color-hover);
+    background: var(--color-focus);
     color: var(--color-bg);
     box-shadow: var(--shadow-lg);
 }
