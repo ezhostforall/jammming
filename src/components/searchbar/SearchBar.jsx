@@ -8,7 +8,6 @@ const SearchBar = ( {searchSongs, setSearchResults}) => {
   const handleSearch = async () => {
     const results = await searchSongs(searchTerm);
     setSearchResults(results);
-    console.log(results);
   }
 
   const handleInputChange = (event) => {

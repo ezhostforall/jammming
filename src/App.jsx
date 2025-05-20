@@ -29,6 +29,8 @@ function App() {
     console.log("Saving playlist to Spotify...");
     localStorage.setItem('playlist', JSON.stringify(playlistTracks));
     localStorage.setItem('playlistName', playlistName);
+    alert(`Playlist "${playlistName}" saved to local storage!`);
+    setSearchResults([]);
   }
 
     return (

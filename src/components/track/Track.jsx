@@ -9,12 +9,12 @@ const Track = ({ track, addTrackToPlaylist, removeTrackFromPlaylist }) => {
             <p>{track.artist}</p>
             <p>{track.album}</p>
             {addTrackToPlaylist && (
-                <Button type="button" className="add-to-playlist-button" onClick={() => addTrackToPlaylist(track)}>
+                <Button type="button" className="outline" onClick={() => addTrackToPlaylist(track)}>
                     +
                 </Button>
             )}
             {removeTrackFromPlaylist && (
-                <Button type="button" className="remove-from-playlist-button" onClick={() => removeTrackFromPlaylist(track.id)}>
+                <Button type="button" className="outline" onClick={() => removeTrackFromPlaylist(track.id)} >
                     -
                 </Button>
             )}
